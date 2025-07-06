@@ -65,7 +65,7 @@ const Student = () => {
     };
   }, []);
 
-  console.log("Backend URL: ", import.meta.env.NEXT_PUBLIC_BACKEND_URL);
+  // console.log("Backend URL: ", import.meta.env.NEXT_PUBLIC_BACKEND_URL);
 
   const joinAsStudent = () => {
     if (studentName.trim() && socket) {
@@ -107,12 +107,12 @@ const Student = () => {
         return;
       }
 
-      // const response = await fetch(
-      //   `https://socket-live-polling-system.onrender.com/api/quiz-history?studentName=${encodeURIComponent(studentName)}`
-      // );
       const response = await fetch(
-        `${import.meta.env.NEXT_PUBLIC_BACKEND_URL}/api/quiz-history?studentName=${encodeURIComponent(studentName)}`
+        `https://socket-live-polling-system.onrender.com/api/quiz-history?studentName=${encodeURIComponent(studentName)}`
       );
+      // const response = await fetch(
+      //   `${import.meta.env.NEXT_PUBLIC_BACKEND_URL}/api/quiz-history?studentName=${encodeURIComponent(studentName)}`
+      // );
       if (!response.ok) throw new Error('Failed to fetch history');
       const data = await response.json();
       setPollHistory(data);
