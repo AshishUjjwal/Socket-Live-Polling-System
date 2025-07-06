@@ -8,12 +8,12 @@ export default defineConfig({
     host: true,
     proxy: {
       '/socket.io': {
-        target: 'https://socket-live-polling-system-gnbr-q3uxviqvy.vercel.app', // your backend
+        target: 'http://socket-live-polling-system.onrender.com', // your backend
         ws: true,                         // enable websocket proxying
         changeOrigin: true,
       },
       '/api': {
-        target: 'https://socket-live-polling-system-gnbr-q3uxviqvy.vercel.app', // same backend for REST
+        target: 'http://socket-live-polling-system.onrender.com', // same backend for REST
         changeOrigin: true,
         secure: false,
       },
