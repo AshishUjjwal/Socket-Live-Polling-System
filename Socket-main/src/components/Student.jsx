@@ -21,7 +21,7 @@ const Student = () => {
     // Check if student already joined (session storage)
     const savedStudent = sessionStorage.getItem('studentName');
 
-    const newSocket = io('/');
+    const newSocket = io('https://socket-live-polling-system.onrender.com');
     setSocket(newSocket);
 
     if (savedStudent) {
@@ -105,7 +105,7 @@ const Student = () => {
       }
 
       const response = await fetch(
-        `/api/quiz-history?studentName=${encodeURIComponent(studentName)}`
+        `https://socket-live-polling-system.onrender.com/api/quiz-history?studentName=${encodeURIComponent(studentName)}`
       );
       if (!response.ok) throw new Error('Failed to fetch history');
       const data = await response.json();

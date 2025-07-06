@@ -6,17 +6,17 @@ export default defineConfig({
   server: {
     port: 5173,
     host: true,
-    proxy: {
-      '/socket.io': {
-        target: 'http://socket-live-polling-system.onrender.com', // your backend
-        ws: true,                         // enable websocket proxying
-        changeOrigin: true,
-      },
-      '/api': {
-        target: 'http://socket-live-polling-system.onrender.com', // same backend for REST
-        changeOrigin: true,
-        secure: false,
-      },
-    },
+    // proxy: {
+    //   '/socket.io': {
+    //     target: 'http://socket-live-polling-system.onrender.com', // your backend
+    //     ws: true,                         // enable websocket proxying
+    //     changeOrigin: true,
+    //   },
+    //   '/api': {
+    //     target: 'http://socket-live-polling-system.onrender.com', // same backend for REST
+    //     changeOrigin: true,
+    //     secure: false,
+    //   },
+    // },
   },
 })
