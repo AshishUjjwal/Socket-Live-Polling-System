@@ -65,7 +65,7 @@ const Student = () => {
     };
   }, []);
 
-  // console.log("Backend URL: ", import.meta.env.NEXT_PUBLIC_BACKEND_URL);
+  console.log("Backend URL: ", import.meta.env.NEXT_PUBLIC_BACKEND_URL);
 
   const joinAsStudent = () => {
     if (studentName.trim() && socket) {
