@@ -21,7 +21,8 @@ const Student = () => {
     // Check if student already joined (session storage)
     const savedStudent = sessionStorage.getItem('studentName');
 
-    const newSocket = io('https://socket-live-polling-system.onrender.com');
+    // const newSocket = io('https://socket-live-polling-system.onrender.com');
+    const newSocket = io(import.meta.env.NEXT_PUBLIC_BACKEND_URL);
     setSocket(newSocket);
 
     if (savedStudent) {
@@ -64,6 +65,8 @@ const Student = () => {
     };
   }, []);
 
+  // console.log("Backend URL: ", import.meta.env.NEXT_PUBLIC_BACKEND_URL);
+
   const joinAsStudent = () => {
     if (studentName.trim() && socket) {
       socket.emit('student-join', studentName.trim());
@@ -104,8 +107,11 @@ const Student = () => {
         return;
       }
 
+      // const response = await fetch(
+      //   `https://socket-live-polling-system.onrender.com/api/quiz-history?studentName=${encodeURIComponent(studentName)}`
+      // );
       const response = await fetch(
-        `https://socket-live-polling-system.onrender.com/api/quiz-history?studentName=${encodeURIComponent(studentName)}`
+        `${import.meta.env.NEXT_PUBLIC_BACKEND_URL}/api/quiz-history?studentName=${encodeURIComponent(studentName)}`
       );
       if (!response.ok) throw new Error('Failed to fetch history');
       const data = await response.json();

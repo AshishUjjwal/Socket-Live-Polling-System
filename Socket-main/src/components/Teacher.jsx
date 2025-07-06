@@ -23,7 +23,7 @@ const Teacher = () => {
   useEffect(() => {
     const savedTeacher = sessionStorage.getItem('teacherName');
 
-    const newSocket = io('https://socket-live-polling-system.onrender.com');
+    const newSocket = io(import.meta.env.NEXT_PUBLIC_BACKEND_URL);
     setSocket(newSocket);
 
     if (savedTeacher) {
@@ -94,8 +94,11 @@ const Teacher = () => {
         return;
       }
 
+      // const response = await fetch(
+      //   `https://socket-live-polling-system.onrender.com/api/quiz-history?teacherName=${encodeURIComponent(teacherName)}`
+      // );
       const response = await fetch(
-        `https://socket-live-polling-system.onrender.com/api/quiz-history?teacherName=${encodeURIComponent(teacherName)}`
+        `${import.meta.env.NEXT_PUBLIC_BACKEND_URL}/api/quiz-history?teacherName=${encodeURIComponent(teacherName)}`
       );
       if (!response.ok) throw new Error('Failed to fetch history');
       const data = await response.json();
