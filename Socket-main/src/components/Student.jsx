@@ -21,8 +21,8 @@ const Student = () => {
     // Check if student already joined (session storage)
     const savedStudent = sessionStorage.getItem('studentName');
 
-    // const newSocket = io('https://socket-live-polling-system.onrender.com');
-    const newSocket = io(import.meta.env.NEXT_PUBLIC_BACKEND_URL);
+    const newSocket = io('https://socket-live-polling-system.onrender.com');
+    // const newSocket = io(import.meta.env.NEXT_PUBLIC_BACKEND_URL);
     setSocket(newSocket);
 
     if (savedStudent) {
