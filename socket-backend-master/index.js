@@ -17,8 +17,9 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB connection
+
 const uri =
-  'mongodb+srv://assimfrommohania:wNPxNYtEpU8RKQbK@cluster0.css7qqh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+  'mongodb+srv://user:ash12345@cluster0.eyphyyb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 const dbName = 'quizApp';
 
 mongoose
